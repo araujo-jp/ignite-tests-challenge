@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn ./src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "prepare": "husky install"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,12 +21,15 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/jsonwebtoken": "^8.5.1",
     "@types/node": "^14.14.35",
     "@types/uuid": "^8.3.0",
+    "husky": "^7.0.4",
     "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.3"
   }

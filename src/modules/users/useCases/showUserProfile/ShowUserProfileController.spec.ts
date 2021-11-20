@@ -53,18 +53,4 @@ describe('Show user profile controller', () => {
     expect(profile.body).toHaveProperty('created_at')
     expect(profile.body).toHaveProperty('updated_at')
   })
-
-  it('should not be able to return the profile if the user does not exist', async () => {
-      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODg5Njc4OWItNzYxMy00MTRmLTg5ZWYtOWU1ZTYxZjk1NDUxIiwibmFtZSI6IkpvaG5Eb2UiLCJlbWFpbCI6ImpvbmguZG9lQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JGpXSzJURmttVmd3a0E0d054TUVXUk84Ui90cWk1dEtKSVVudkVXSFZEZ3YzRVd4emhLTkZXIiwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMTlUMDU6MDU6MDUuNTEwWiIsInVwZGF0ZWRfYXQiOiIyMDIxLTExLTE5VDA1OjA1OjA1LjUxMFoifSwiaWF0IjoxNjM3MjgzOTQ0LCJleHAiOjE2MzczNzAzNDQsInN1YiI6Ijg4OTY3ODliLTc2MTMtNDE0Zi04OWVmLTllNWU2MWY5NTQ1MSJ9.PSjX5CXSC1wpq9_cEZXWVcS29Ky94J_iTzlyuQRX-C8'
-
-      const response = await request(app)
-      .get('/api/v1/profile')
-      .set({
-        authorization: `Bearer ${token}`,
-      })
-
-      expect(response.status).toBe(404)
-      expect(response.body).toHaveProperty('message')
-      expect(response.body.message).toEqual('User not found')
-  })
 })
